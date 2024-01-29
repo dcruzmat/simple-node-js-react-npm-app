@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {nodejs "nodejs20"}
-    tools {minio "Minio"}
 
     stages {
         stage('Build Static Site') {

@@ -11,7 +11,7 @@ pipeline {
 		sh 'ls ./build'
             }
         }
-        stage('OBS Bucket Setup') {
+        stage('HC OBS Bucket Setup') {
             steps {
                 sh 'curl https://dl.min.io/client/mc/release/linux-amd64/mc --create-dirs -o $HOME/minio-binaries/mc'
 		sh 'chmod +x $HOME/minio-binaries/mc'
@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy Static Site to OBS') {
             steps {
                 sh 'cd ./build'
-		sh '$HOME/minio-binaries/mc cp ./build/. myobs/cra-test/. --recursive'
+		sh '$HOME/minio-binaries/mc cp ./build/ myobs/cra-test/ --recursive'
             }
         }
     }

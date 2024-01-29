@@ -12,4 +12,13 @@ pipeline {
             }
         }
     }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'ls ./build'
+		sh 'ec alias list'
+            }
+        }
+    }
 }

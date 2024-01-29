@@ -11,9 +11,6 @@ pipeline {
 		sh 'ls ./build'
             }
         }
-    }
-
-    stages {
         stage('Deploy') {
             steps {
                 sh 'ls ./build'

@@ -12,7 +12,7 @@ pipeline {
 		sh 'ls ./build'
             }
         }
-/*        stage('HC OBS Bucket Setup') {
+        stage('HC OBS Bucket Setup') {
             steps {
                 sh 'curl https://dl.min.io/client/mc/release/linux-amd64/mc --create-dirs -o $HOME/minio-binaries/mc'
 		sh 'chmod +x $HOME/minio-binaries/mc'
@@ -25,11 +25,6 @@ pipeline {
             steps {
 		sh '$HOME/minio-binaries/mc cp ./build/ myobs/cra-test/ --recursive'
             }
-        } */
-        stage('Deploy Static Site to OBS with minio plugin') {
-            steps {
-		minio bucket: 'cra-test', credentialsId: 'VBQOAC5EIGTZ43NGMTQR/U0yCk3XtNrBOfrdm34qkqtgaiw7iGyVaZLU36ARx', host:'https://obs.la-north-2.myhuaweicloud.com', includes: '*.*', excludes: '', targetFolder '.'
-            }
-        } 
+        }  
     }
 }

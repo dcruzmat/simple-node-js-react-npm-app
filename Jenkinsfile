@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy Static Site to OBS') {
             steps {
                 sh 'ls ./build'
-		sh '$HOME/minio-binaries/mc cp ./build myobs/cra-test --recursive'
+		sh '$HOME/minio-binaries/mc cp ./build/. myobs/cra-test --recursive'
             }
         }
     }
